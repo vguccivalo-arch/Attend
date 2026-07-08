@@ -1,0 +1,45 @@
+@page "/Classes"
+
+<h1>class</h1>
+
+<table>
+    <tr>
+        <th>ClassId</th>
+         <th>ClassName</th>
+          <th>Classcode</th>
+           <th>IdInstructor</th>
+           <th>School year</th>
+    </tr>
+    @foreach(var Class in classes)
+    {
+        <tr>
+            <td>Class.ClassId</td>
+             <td>Class.ClassName</td>
+              <td>Class.Classcode</td>
+               <td>Class.IdInstructor</td>
+                <td>Class.School year</td>
+        </tr>
+    }
+</table>
+@code{
+    public class  Class{
+
+        public int ClassId{get;set;}
+        public string ClassName{get;set;}
+        public string Classcode{get;set;}
+        public int IdInstructor{get;set;}
+        public string Schoolyear{get;set;}
+
+    }
+    private List<Class>classes=new List<Class>();
+    protected override void OnInitialized()  
+    {
+    classes=new List<Class>
+        {
+            new Class {ClassId=1,ClassName="Class A",IdInstructor=1,Schoolyear="2025-2026"},
+            new Class {ClassId=2,ClassName="Class B",IdInstructor=2,Schoolyear="2025-2026"},
+            new Class {ClassId=3,ClassName="Class C",IdInstructor=3,Schoolyear="2025-2026"},
+            new Class {ClassId=4,ClassName="Class D",IdInstructor=4,Schoolyear="2025-2026"},
+        };
+    }
+}
