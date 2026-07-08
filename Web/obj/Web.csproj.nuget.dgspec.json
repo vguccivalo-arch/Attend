@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vgucc\\PROJECTS\\Attend\\Web\\Web.csproj": {}
+    "C:\\Users\\vgucc\\PROJECTS\\Attend\\web\\Web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vgucc\\PROJECTS\\Attend\\Web\\Web.csproj": {
+    "C:\\Users\\vgucc\\PROJECTS\\Attend\\web\\Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vgucc\\PROJECTS\\Attend\\Web\\Web.csproj",
+        "projectUniqueName": "C:\\Users\\vgucc\\PROJECTS\\Attend\\web\\Web.csproj",
         "projectName": "Web",
-        "projectPath": "C:\\Users\\vgucc\\PROJECTS\\Attend\\Web\\Web.csproj",
+        "projectPath": "C:\\Users\\vgucc\\PROJECTS\\Attend\\web\\Web.csproj",
         "packagesPath": "C:\\Users\\vgucc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vgucc\\PROJECTS\\Attend\\Web\\obj\\",
+        "outputPath": "C:\\Users\\vgucc\\PROJECTS\\Attend\\web\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
