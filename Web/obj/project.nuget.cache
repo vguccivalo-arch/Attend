@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IXogfTOk/Ag=",
+  "dgSpecHash": "yqecyI8UZIo=",
   "success": true,
-  "projectFilePath": "C:\\Users\\vgucc\\PROJECTS\\Attend\\web\\Web.csproj",
+  "projectFilePath": "C:\\Users\\vgucc\\PROJECTS\\Attend\\Web\\Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vgucc\\.nuget\\packages\\microsoft.aspnetcore.app.internal.assets\\10.0.9\\microsoft.aspnetcore.app.internal.assets.10.0.9.nupkg.sha512"
   ],
