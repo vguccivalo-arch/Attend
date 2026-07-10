@@ -1,5 +1,6 @@
 @page "/Students"
-@using Core.Application.Services.StudentServices
+@using Application.Services.StudentServices
+@using Domain.Entities
 @inject IStudentService StudentService
 <h1>Students List</h1>
 <table>
@@ -11,15 +12,15 @@
         <th>Phone</th>
         <th>Email</th>
     </tr>
-    @foreach (var Student in students)
+    @foreach (var student in students)
     {
         <tr>
-            <td>@Student.Id</td>
-            <td>@Student.Name</td>
-            <td>@Student.Sex</td>
-            <td>@Student.DateofBirth</td>
-            <td>@Student.Phone</td>
-            <td>@Student.Email</td>
+            <td>@student.Id</td>
+            <td>@student.Name</td>
+            <td>@student.Sex</td>
+            <td>@student.DateOfBirth</td>
+            <td>@student.Phone</td>
+            <td>@student.Email</td>
         </tr>
     }
 </table>
@@ -28,6 +29,6 @@
     private List<Student> students = new List <Student>();
     protected override void OnInitialized()
     {
-       students=StudentService.GetAllStudents();
+       students = StudentService.GetAllStudents();
     }
 }
