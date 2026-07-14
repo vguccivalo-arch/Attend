@@ -1,6 +1,9 @@
+using Infrastructure.Repositories;
 using Application.Services.ClassesServices;
 using Application.Services.StudentServices;
 using Web.Components;
+using Application.interfaces;
+using Domain.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,9 +12,10 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 //Registration of Services
- builder.Services.AddScoped<IStudentService ,StudentService>();
- builder.Services.AddScoped<IClassesService ,ClassesService>();
-
+ builder.Services.AddScoped<IStudentService, StudentService>();
+ builder.Services.AddScoped<IClassesService, ClassesService>();
+ builder.Services.AddScoped<IStudent, StudentRepository>();
+ builder.Services.AddScoped<Iclass, ClassRepository>();
 
 var app = builder.Build();
 
