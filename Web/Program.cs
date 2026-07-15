@@ -7,7 +7,7 @@ using Domain.Entities;
 using Infrastructure.DependencyInjection;
 using Application.Services.AttendanceServices;
 using Application.Services.ClassStudentServices;
-
+using Application.Services.EDucationLevelServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,7 +19,8 @@ builder.Services.AddRazorComponents()
  builder.Services.AddScoped<IStudentService, StudentService>();
  builder.Services.AddScoped<IClassesService, ClassesService>();
  builder.Services.AddScoped<IAttendanceService, AttendanceService>();
- builder.Services.AddScoped<IClassStudentService,ClassStudentService>();
+ builder.Services.AddScoped<IClassStudentService, ClassStudentService>();
+ builder.Services.AddScoped<IEducationLevelService, EDucationLevelService>();
 builder.Services.AddInfrastructureService(builder.Configuration);
 
 var app = builder.Build();

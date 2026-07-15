@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Application.Interfaces;
 using Infrastructure.Repositories;
+using System.Buffers;
 namespace Infrastructure.DependencyInjection
 {
     
@@ -17,6 +18,9 @@ namespace Infrastructure.DependencyInjection
             );
             services.AddScoped<IStudent, StudentRepository>();
             services.AddScoped<Iclass, ClassRepository>();
+            services.AddScoped<IAttendance, AttendanceRepository>();
+            services.AddScoped<IClassStudent,ClassStudentRepository>();
+            services.AddScoped<IEducationLevel,EducationLevelRepository>();
             return services;
 
         }

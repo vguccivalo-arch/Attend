@@ -1,0 +1,27 @@
+@using Domain.Entities;
+@using Application.Services.EDucationLevelServices;
+@inject IEducationLevelService EducationLevelService
+@page "/EducationLevelPage"
+<h1>EducationLevel</h1>
+<table>
+    <tr>
+        <th>Id</th>
+         <th>LevelName</th>
+          <th>Description</th>
+    </tr>
+@foreach(var EducationLevel in EducationLevels)
+{
+    <tr>
+        <td>@EducationLevel.Id</td>
+         <td>@EducationLevel.LevelName</td>
+          <td>@EducationLevel.Description</td>
+    </tr>
+}
+</table>
+@code{
+    private List<EducationLevel>EducationLevels=new List<EducationLevel>();
+        protected override void OnInitialized()
+        {
+          EducationLevels=EducationLevelService.GetAllEducationLevel();
+        }
+}

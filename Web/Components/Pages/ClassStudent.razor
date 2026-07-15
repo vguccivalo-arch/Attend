@@ -6,6 +6,7 @@
 <h1>ClassStudent</h1>
 <table>
     <tr>
+         <th>Id</th>
         <th>ClassId</th>
         <th>StudentId</th>
         
@@ -13,8 +14,9 @@
     @foreach(var classstudent in ClassStudents)
     {
         <tr>
-            <td>classtudent.ClassId</td>
-            <td>ClassStudent.StudentId</td>
+             <td>@classstudent.Id</td>
+            <td>@classstudent.ClassId</td>
+            <td>@classstudent.StudentId</td>
         </tr>
     }
 </table>

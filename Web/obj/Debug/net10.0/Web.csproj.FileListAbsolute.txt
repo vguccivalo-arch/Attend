@@ -257,8 +257,6 @@ C:\Users\vgucc\PROJECTS\Attend\Web\obj\Debug\net10.0\compressed\ujgrw219mk-{0}-h
 C:\Users\vgucc\PROJECTS\Attend\Web\obj\Debug\net10.0\compressed\prox3i9mme-{0}-63fj8s7r0e-63fj8s7r0e.gz
 C:\Users\vgucc\PROJECTS\Attend\Web\obj\Debug\net10.0\compressed\uxr18qbbpx-{0}-0j3bgjxly4-0j3bgjxly4.gz
 C:\Users\vgucc\PROJECTS\Attend\Web\obj\Debug\net10.0\compressed\wn7tfq2zxw-{0}-abdmv1u4y3-abdmv1u4y3.gz
-C:\Users\vgucc\PROJECTS\Attend\Web\obj\Debug\net10.0\compressed\dvmvd6hs63-{0}-ne14ti1q68-ne14ti1q68.gz
-C:\Users\vgucc\PROJECTS\Attend\Web\obj\Debug\net10.0\compressed\9dvhe18ksu-{0}-ig5xotzpx5-ig5xotzpx5.gz
 C:\Users\vgucc\PROJECTS\Attend\Web\obj\Debug\net10.0\compressed\w0u4xjpyxz-{0}-3jk44lf6ll-3jk44lf6ll.gz
 C:\Users\vgucc\PROJECTS\Attend\Web\obj\Debug\net10.0\compressed\k89rhi3gy1-{0}-3jk44lf6ll-3jk44lf6ll.gz
 C:\Users\vgucc\PROJECTS\Attend\Web\obj\Debug\net10.0\staticwebassets.build.json
@@ -272,3 +270,5 @@ C:\Users\vgucc\PROJECTS\Attend\Web\obj\Debug\net10.0\refint\Web.dll
 C:\Users\vgucc\PROJECTS\Attend\Web\obj\Debug\net10.0\Web.pdb
 C:\Users\vgucc\PROJECTS\Attend\Web\obj\Debug\net10.0\Web.genruntimeconfig.cache
 C:\Users\vgucc\PROJECTS\Attend\Web\obj\Debug\net10.0\ref\Web.dll
+C:\Users\vgucc\PROJECTS\Attend\Web\obj\Debug\net10.0\compressed\dvmvd6hs63-{0}-f7fxoh55ae-f7fxoh55ae.gz
+C:\Users\vgucc\PROJECTS\Attend\Web\obj\Debug\net10.0\compressed\9dvhe18ksu-{0}-68qhiysw0j-68qhiysw0j.gz
