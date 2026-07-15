@@ -1,5 +1,5 @@
 using Domain.Entities;
-namespace Application.interfaces
+namespace Application.Interfaces
 {
     public interface Iclass
     {

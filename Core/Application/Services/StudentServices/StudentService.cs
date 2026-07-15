@@ -1,5 +1,5 @@
 using System.IO.Pipes;
-using Application.interfaces;
+using Application.Interfaces;
 using Domain.Entities;
 namespace Application.Services.StudentServices
 

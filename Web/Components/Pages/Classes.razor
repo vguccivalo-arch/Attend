@@ -6,20 +6,32 @@
 
 <table>
     <tr>
-        <th>ClassId</th>
-         <th>ClassName</th>
-          <th>Classcode</th>
-           <th>InstructorName</th>
-           <th>School year</th>
+        <th>Id</th>
+        <th>ClassName</th>
+        <th>Classcode</th>
+        <th>InstructorName</th>
+        <th>faculty</th>
+        <th>Department</th>
+        <th>Schoolyear</th>
+        <th>useradded</th>
+        <th>DateAdded</th>
+        <th>Status</th>
+
     </tr>
     @foreach(var Class in classs)
     {
         <tr>
-            <td>@Class.ClassId</td>
-             <td>@Class.ClassName</td>
-              <td>@Class.Classcode</td>
-               <td>@Class.InstructorName</td>
-                <td>@Class.Schoolyear</td>
+            <td>@Class.Id</td>
+            <td>@Class.ClassName</td>
+            <td>@Class.Classcode</td>
+            <td>@Class.InstructorName</td>
+            <td>@Class.faculty</td>
+            <td>@Class.Department</td>
+            <td>@Class.Schoolyear</td>
+            <td>@Class.useradded</td>
+            <td>@Class.DateAdded</td>
+            <td>@Class.Status</td>
+
         </tr>
     }
 </table>

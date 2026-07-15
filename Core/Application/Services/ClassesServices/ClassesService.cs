@@ -1,5 +1,5 @@
 using System.Security.Cryptography.X509Certificates;
-using Application.interfaces;
+using Application.Interfaces;
 using Domain.Entities;
  namespace Application.Services.ClassesServices
 {

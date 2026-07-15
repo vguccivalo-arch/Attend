@@ -2,8 +2,12 @@ using Infrastructure.Repositories;
 using Application.Services.ClassesServices;
 using Application.Services.StudentServices;
 using Web.Components;
-using Application.interfaces;
+using Application.Interfaces;
 using Domain.Entities;
+using Infrastructure.DependencyInjection;
+using Application.Services.AttendanceServices;
+using Application.Services.ClassStudentServices;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,8 +18,9 @@ builder.Services.AddRazorComponents()
 //Registration of Services
  builder.Services.AddScoped<IStudentService, StudentService>();
  builder.Services.AddScoped<IClassesService, ClassesService>();
- builder.Services.AddScoped<IStudent, StudentRepository>();
- builder.Services.AddScoped<Iclass, ClassRepository>();
+ builder.Services.AddScoped<IAttendanceService, AttendanceService>();
+ builder.Services.AddScoped<IClassStudentService,ClassStudentService>();
+builder.Services.AddInfrastructureService(builder.Configuration);
 
 var app = builder.Build();
 

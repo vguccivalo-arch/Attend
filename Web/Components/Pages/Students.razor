@@ -6,21 +6,37 @@
 <table>
     <tr>
         <th>Id</th>
-        <th>Name</th>
+        <th>FullName</th>
         <th>Sex</th>
         <th>Date Of Birth</th>
         <th>Phone</th>
         <th>Email</th>
+         <th>RegNumber</th>
+        <th>Address</th>
+        <th>ParentNames</th>
+        <th>Parentphonenumber</th>
+        <th>useradded</th>
+        <th>DateAdded</th>
+        <th>Status</th>
+
     </tr>
     @foreach (var student in students)
     {
         <tr>
             <td>@student.Id</td>
-            <td>@student.Name</td>
+            <td>@student.FullName</td>
             <td>@student.Sex</td>
             <td>@student.DateOfBirth</td>
             <td>@student.Phone</td>
             <td>@student.Email</td>
+            <td>@student.RegNumber</td>
+            <td>@student.Address</td>
+            <td>@student.ParentNames</td>
+            <td>@student.Parentphonenumber</td>
+            <td>@student.useradded</td>
+            <td>@student.DateAdded</td>
+            <td>@student.Status</td>
+
         </tr>
     }
 </table>

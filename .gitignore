@@ -34,3 +34,4 @@ project.lock.json
 Thumbs.db
 Desktop.ini
 .DS_Store
+[Mm]igrations/
