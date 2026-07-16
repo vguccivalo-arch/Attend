@@ -12,6 +12,9 @@ namespace Domain.Entities
         public string useradded{ get; set; }
         public  DateTime DateAdded{ get; set; }
         public string Status{ get; set; }
+        public int EducationLevelId{get;set;}
+        // navigation property
+        public EducationLevel EducationLevel{get;set;}
 
     }
 

@@ -6,7 +6,7 @@ using Application.Services.ClassStudentServices;
 using Microsoft.Extensions.DependencyInjection;
 namespace Application.DependencyInjection
 {
-    public static class servicecontainer
+    public static class ServiceContainer
     {
       public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
