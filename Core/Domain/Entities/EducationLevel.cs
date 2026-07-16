@@ -6,6 +6,6 @@ namespace Domain.Entities
         public string LevelName{get;set;}
         public string Description { get; set; }
         // navigation property
-        public ICollection<Class>Classes{get;set;}
+        public ICollection<Classs>Classes{get;set;}
     }
 }

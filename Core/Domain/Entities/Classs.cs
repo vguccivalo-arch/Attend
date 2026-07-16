@@ -1,6 +1,6 @@
 namespace Domain.Entities
 {
-    public class  Class{
+    public class  Classs{
 
         public int Id{get;set;}
         public string ClassName{get;set;}

@@ -3,6 +3,6 @@ namespace Application.Interfaces
 {
     public interface Iclass
     {
-       public List<Class>GetAllClasses();
+       public List<Classs>GetAllClasses();
     }
 }

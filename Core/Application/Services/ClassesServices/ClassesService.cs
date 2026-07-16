@@ -10,7 +10,7 @@ using Domain.Entities;
         {
         _Classs=classs;
         }
-        public List<Class>GetAllClasses()
+        public List<Classs>GetAllClasses()
         {
             return _Classs.GetAllClasses(); 
         
