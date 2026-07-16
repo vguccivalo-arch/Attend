@@ -9,5 +9,8 @@ namespace Domain.Entities
         public TimeOnly Time{get;set;}
         public string Status{get;set;}
         
+       public Student student{get;set;}
+       public Classs Class{get;set;}
+        
     }
 }

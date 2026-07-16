@@ -14,9 +14,9 @@ public class Student
         public string UserAdded{ get; set; }
         public  DateTime DateAdded{ get; set; }
         public string Status{ get; set; }
-        public ICollection<EducationLevel>EducationLevels{get;set;}
-        public ICollection<faculty>faculties{get;set;}
-
+      
+       public ICollection<classstudent>Classstudentsstudents{get;set;}
+       public ICollection<attendance> attendances{get;set;}
         
     }
 }

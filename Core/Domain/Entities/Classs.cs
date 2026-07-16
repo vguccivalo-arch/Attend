@@ -13,8 +13,13 @@ namespace Domain.Entities
         public  DateTime DateAdded{ get; set; }
         public string Status{ get; set; }
         public int EducationLevelId{get;set;}
-        // navigation property
+        public int FacultyId{get;set;}
+
+
+        public faculty Faculty{get;set;}
         public EducationLevel EducationLevel{get;set;}
+        // navigation property
+      
 
     }
 

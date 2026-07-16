@@ -4,6 +4,11 @@ namespace Domain.Entities
     {   
         public int Id{get;set;}
         public int ClassId{get;set;}
-        public int StudentId{get;set;}
+        
+       public int StudentId{get;set;}
+
+       public Classs Class{get;set;}
+       public Student student{get;set;}
+
     }
 }
