@@ -1,19 +1,24 @@
 using Application.Interfaces;
 using Domain.Entities;
+using Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 namespace Infrastructure.Repositories
 {
     public class EducationLevelRepository :IEducationLevel
     {
-        public List<EducationLevel> GetAllEducationLevel()
+       public readonly ApplicationDBContext _dbcontext;
+       public EducationLevelRepository(ApplicationDBContext dBContext)
         {
-            return new List<EducationLevel>
-            {    
-                new EducationLevel{Id=1,LevelName="Primary",Description="Completion of Primary education"},
-                new EducationLevel{Id=2,LevelName="HighSchool",Description="Completion of secondary education"},
-                new EducationLevel{Id=3,LevelName="Bachelor",Description="Undergraduate academic degree"},
-                 new EducationLevel{Id=4,LevelName="Master",Description="Post-graduate academic degree"},
-                  new EducationLevel{Id=5,LevelName="PhD",Description="Highest level of academic degree"}
-            };
+            _dbcontext=dBContext;
+        }
+        public List<EducationLevel>GetAllEducationLevel()
+        {
+            return _dbcontext.EducationLevels.ToList();
+        }
+        public void AddEducationLevel(EducationLevel educationLevel)
+        {
+            _dbcontext.EducationLevels.Add(educationLevel);
+            _dbcontext.SaveChanges();
         }
     }
 }

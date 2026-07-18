@@ -3,9 +3,10 @@
 @using Domain.Entities
 @inject IClassesService ClassesService
 <h1>Classes</h1>
-
-<table>
-    <tr>
+<a class="btn btn-primary" href="/Classes/Add">Add Classes</a>
+<table class="table">
+    <thead>
+<tr>
         <th>Id</th>
         <th>ClassName</th>
         <th>Classcode</th>
@@ -18,6 +19,8 @@
         <th>Status</th>
 
     </tr>
+    </thead>
+    
     @foreach(var Class in classs)
     {
         <tr>

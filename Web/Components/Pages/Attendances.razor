@@ -5,31 +5,30 @@
 @page "/Attendance"
 
 <h1>Attendance</h1>
-<table>
-    <tr>
+<table class="table">
+    <thead>
+<tr>
         <th>Id</th>
-        <th>StudentId</th>
         <th>ClassId</th>
         <th>Date</th>
-        <th>Time</th>
         <th>Status</th>
     </tr>
-@foreach(var attendance in Attendances)
+    </thead>
+    
+@foreach(var attendance in attendances)
 {<tr>
     <td>@attendance.Id</td>
-     <td>@attendance.StudentId</td>
       <td>@attendance.ClassId</td>
        <td>@attendance.Date</td>
-        <td>@attendance.Time</td>
          <td>@attendance.Status</td>
 </tr>
 
 }
 </table>
 @code{
-    private List<attendance>Attendances=new List<attendance>();
+    private List<Attendance>attendances=new List<Attendance>();
     protected override void OnInitialized()
     {
-        Attendances=AttendanceService.GetAllAttendances();
+        attendances=AttendanceService.GetAllAttendances();
     }
 }

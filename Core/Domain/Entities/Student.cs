@@ -15,8 +15,8 @@ public class Student
         public  DateTime DateAdded{ get; set; }
         public string Status{ get; set; }
       
-       public ICollection<classstudent>Classstudentsstudents{get;set;}
-       public ICollection<attendance> attendances{get;set;}
+     
+      
         
     }
 }

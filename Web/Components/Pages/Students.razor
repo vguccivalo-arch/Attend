@@ -1,10 +1,13 @@
-@page "/Students"
+@page "/students"
 @using Application.Services.StudentServices
 @using Domain.Entities
+@inject NavigationManager Navigation
 @inject IStudentService StudentService
 <h1>Students List</h1>
-<table>
-    <tr>
+<a class="btn btn-primary" href="/students/Add">Add Student</a>
+<table class="table">
+    <thead>
+ <tr>
         <th>Id</th>
         <th>FullName</th>
         <th>Sex</th>
@@ -19,6 +22,8 @@
         <th>Status</th>
 
     </tr>
+    </thead>
+   
     @foreach (var student in students)
     {
         <tr>

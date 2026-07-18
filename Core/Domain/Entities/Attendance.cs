@@ -1,16 +1,17 @@
 namespace Domain.Entities
 {
-    public class attendance
+    public class Attendance
     {
         public int Id{get;set;}
-        public int StudentId{get;set;}
+      
         public int ClassId{get;set;}
         public DateTime Date{get;set;}
-        public TimeOnly Time{get;set;}
+       
         public string Status{get;set;}
         
-       public Student student{get;set;}
+      
        public Classs Class{get;set;}
+      
         
     }
 }

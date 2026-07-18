@@ -1,6 +1,8 @@
 using Application.Interfaces;
 using Domain.Entities;
+using System.IO.Pipes;
 namespace Application.Services.ClassStudentServices
+
 {
     public class ClassStudentService : IClassStudentService
     {
@@ -12,6 +14,10 @@ namespace Application.Services.ClassStudentServices
        public List<classstudent>GetAllClassStudent()
         {
             return _CLASSSTUDENT.GetAllClassStudent();
+        }
+        public void AddClassStudent(classstudent classStudent)
+        {
+            _CLASSSTUDENT.AddClassStudent(classStudent);
         }
     }
 }

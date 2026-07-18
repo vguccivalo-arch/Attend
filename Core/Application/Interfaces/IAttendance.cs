@@ -3,6 +3,6 @@ namespace Application.Interfaces
 {
    public interface IAttendance
     {
-        public List<attendance>GetAllAttendances();
+        public List<Attendance>GetAllAttendances();
     } 
 }

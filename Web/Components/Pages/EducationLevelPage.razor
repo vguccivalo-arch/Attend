@@ -1,14 +1,27 @@
 @using Domain.Entities;
 @using Application.Services.EDucationLevelServices;
+@inject NavigationManager Navigation
 @inject IEducationLevelService EducationLevelService
 @page "/EducationLevelPage"
 <h1>EducationLevel</h1>
-<table>
-    <tr>
+<a class="btn btn-primary" href="/EducationLevel/Add">Add EducationLevel</a>
+<table class="table">
+    <thead>
+<tr>
         <th>Id</th>
-         <th>LevelName</th>
-          <th>Description</th>
+        <th>ClassName</th>
+        <th>Classcode</th>
+        <th>InstructorName</th>
+        <th>faculty</th>
+        <th>Department</th>
+        <th>Schoolyear</th>
+        <th>useradded</th>
+        <th>DateAdded</th>
+        <th>Status</th>
+
     </tr>
+    </thead>
+    
 @foreach(var EducationLevel in EducationLevels)
 {
     <tr>

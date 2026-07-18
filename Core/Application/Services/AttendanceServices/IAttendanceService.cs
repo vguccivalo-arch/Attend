@@ -3,6 +3,6 @@ namespace Application.Services.AttendanceServices
 {
     public  interface IAttendanceService
     {
-        public List<attendance>GetAllAttendances();
+        public List<Attendance>GetAllAttendances();
     }
 }

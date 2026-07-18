@@ -1,18 +1,24 @@
  using Domain.Entities;
  using Application.Interfaces;
+using Infrastructure.Data;
 namespace Infrastructure.Repositories
 {
     public class ClassRepository :Iclass
     {
+        private readonly ApplicationDBContext _dbcontext;
+        public ClassRepository(ApplicationDBContext dBContext)
+        {
+            _dbcontext=dBContext;
+        }
           public List<Classs>GetAllClasses()
          {
-             return new List<Classs>
-        {
-            new Classs {Id=1,ClassName="Class A",Classcode="01A",InstructorName="Mr. Wright",faculty="Software developpement",Department="Computer Engineering",Schoolyear="2025-2026",useradded="Admin",DateAdded=new DateTime(2026,5,5),Status="Active"},
-            new Classs {Id=2,ClassName="Class B",Classcode="02A",InstructorName="Ms. Sharp",faculty="Software developpement",Department="Computer Engineering",Schoolyear="2025-2026",useradded="Admin",DateAdded=new DateTime(2026,5,5),Status="Active"},
-            new Classs {Id=3,ClassName="Class C",Classcode="03A",InstructorName="Ms. Bright",faculty="Software developpement",Department="Computer Engineering",Schoolyear="2025-2026",useradded="Admin",DateAdded=new DateTime(2026,5,5),Status="Active"},
-            new Classs {Id=4,ClassName="Class D",Classcode="04A",InstructorName="Mr. Stone",faculty="Software developpement",Department="Computer Engineering",Schoolyear="2025-2026",useradded="Admin",DateAdded=new DateTime(2026,5,5),Status="Active"},
-        };
+             return _dbcontext.classes.ToList();
          }
+        public void AddClasses(Classs classs)
+        {
+            _dbcontext.classes.Add(classs);
+            _dbcontext.SaveChanges();
+        }
+
     }
 }

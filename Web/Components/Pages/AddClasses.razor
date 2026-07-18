@@ -1,0 +1,60 @@
+@using Domain.Entities
+@using Application.Services.ClassesServices
+@rendermode InteractiveServer
+@using Infrastructure.Migrations
+@inject  IClassesService ClassesService
+@inject NavigationManager navigation
+@page "/Classes/Add"
+<div>
+    <editform Model="classs" OnValidSubmit="SaveClass">
+        <h1>Add Classes</h1>
+        <div class="form-group">
+            <label class="form-label">Class Name:</label>
+            <InputText class="form-control" @bind-Value="classs.ClassName" />
+        </div>
+        <div class="form-group">
+            <label class="form-label">Class Code:</label>
+            <InputText class="form-control" @bind-Value="classs.Classcode" />
+        </div>  
+        <div class="form-group">
+            <label class="form-label">Instructor Name:</label>
+            <InputText class="form-control" @bind-Value="classs.InstructorName" />
+        </div>
+        <div class="form-group">
+            <label class="form-label">Faculty:</label>
+            <InputText class="form-control" @bind-Value="classs.faculty" />
+        </div>
+        <div class="form-group">
+            <label class="form-label">Department:</label>
+            <InputText class="form-control" @bind-Value="classs.Department" />
+        </div>
+        <div class="form-group">
+            <label class="form-label">School Year:</label>
+            <InputText class="form-control" @bind-Value="classs.Schoolyear" />
+        </div>
+        <div class="form-group">
+            <label class="form-label">User Added:</label>
+            <InputText class="form-control" @bind-Value="classs.useradded" />
+        </div>
+        <div class="form-group">
+            <label class="form-label">Date Added:</label>
+            <InputDate class="form-control" @bind-Value="classs.DateAdded" />
+        </div>
+        <div class="form-group">
+            <label class="form-label">Status:</label>
+            <InputText class="form-control" @bind-Value="classs.Status" />  
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </editform>
+  </div>
+
+
+
+@code{
+    private Classs classs=new Classs();
+    private void SaveClass()
+    {
+    ClassesService.AddClasses(classs);
+    navigation.NavigateTo( "/Classes");
+    }
+}

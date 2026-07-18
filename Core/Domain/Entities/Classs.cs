@@ -18,8 +18,9 @@ namespace Domain.Entities
 
         public faculty Faculty{get;set;}
         public EducationLevel EducationLevel{get;set;}
+
         // navigation property
-      
+     
 
     }
 

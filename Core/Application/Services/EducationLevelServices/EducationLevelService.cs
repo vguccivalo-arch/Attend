@@ -1,6 +1,6 @@
 using Domain.Entities;
 using Application.Interfaces;
-
+using System.IO.Pipes;
 namespace Application.Services.EDucationLevelServices
 {
     public class  EDucationLevelService : IEducationLevelService
@@ -14,6 +14,10 @@ namespace Application.Services.EDucationLevelServices
     {
         return _EDUCATIONLEVEL.GetAllEducationLevel();
     }
+    public void AddEducationLevel(EducationLevel educationLevel)
+        {
+            _EDUCATIONLEVEL.AddEducationLevel(educationLevel);
+        }
     }
 
 }

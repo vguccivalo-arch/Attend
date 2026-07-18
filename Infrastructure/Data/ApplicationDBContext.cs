@@ -9,11 +9,12 @@ namespace Infrastructure.Data
         }
         public DbSet<Student> Students{get;set;}
          public DbSet<Classs> classes{get;set;}
-         public DbSet<attendance>Attendances{get;set;}
+         public DbSet<Attendance>Attendances{get;set;}
 
          public DbSet<classstudent>ClassStudent{get;set;}
          public DbSet<EducationLevel>EducationLevels{get;set;}
          public DbSet<faculty>Faculties{get;set;}
+         public DbSet<StudentAttendance>StudentAttendances{get;set;}
 
 
     }

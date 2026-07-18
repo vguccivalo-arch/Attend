@@ -9,7 +9,7 @@ namespace Application.Services.AttendanceServices
         {
             _ATTENDANCE=ATTENDANCE;
         }
-        public List<attendance> GetAllAttendances()
+        public List<Attendance> GetAllAttendances()
         {
             return _ATTENDANCE.GetAllAttendances();
         }

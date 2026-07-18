@@ -1,0 +1,34 @@
+
+@rendermode InteractiveServer
+@inject IEducationLevelService EDucationLevelService
+@inject NavigationManager Navigation
+@using Infrastructure.Migrations
+@using Application.Services.EDucationLevelServices
+@page "/EducationLevel/Add"
+@using Domain.Entities
+<div>
+    <editform Model="educationLevel" OnValidSubmit="SaveEducationLevel">
+        <h1>Add Education Level</h1>
+        <div class="form-group">
+            <label class="form-label">Education Level Name:</label>
+            <InputText class="form-control" @bind-Value="educationLevel.LevelName" />
+        </div>
+        <div class="form-group">
+            <label class="form-label"> Description:</label>
+            <InputText class="form-control" @bind-Value="educationLevel.Description" />
+        </div>
+     
+        <button type="submit" class="btn btn-primary">Save</button>
+     
+    </editform> 
+</div>
+
+
+@code{
+    private EducationLevel educationLevel=new EducationLevel();
+    private void SaveEducationLevel()
+    {
+    EDucationLevelService.AddEducationLevel(educationLevel);
+    Navigation.NavigateTo("/EducationLevelPage");
+    }
+}

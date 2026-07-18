@@ -1,0 +1,28 @@
+@rendermode InteractiveServer
+@using Infrastructure.Migrations
+@inject NavigationManager navigation
+@using Application.Services.ClassStudentServices
+@using Domain.Entities
+@inject  IClassStudentService ClassStudentService
+@page "/ClassStudent/Add"
+<div class="form-group">
+    <label class="form-label">Class Id:</label>
+    @* Use InputNumber for int types *@
+    <InputNumber class="form-control" @bind-Value="classStudent.ClasssId" />
+</div>
+
+<div class="form-group">
+    <label class="form-label">Student Id:</label>
+    @* Use InputNumber for int types *@
+    <InputNumber class="form-control" @bind-Value="classStudent.StudentId" />
+</div>
+<button class="btn btn-primary" @onclick="SaveClassStudent">Save</button>
+@code{
+    private classstudent classStudent= new classstudent();
+    private void SaveClassStudent()
+    {
+      ClassStudentService.AddClassStudent(classStudent);
+      navigation.NavigateTo("/ClassStudent");
+    }
+
+}

@@ -1,4 +1,5 @@
 using System.Security.Cryptography.X509Certificates;
+using System.IO.Pipes;
 using Application.Interfaces;
 using Domain.Entities;
  namespace Application.Services.ClassesServices
@@ -14,6 +15,10 @@ using Domain.Entities;
         {
             return _Classs.GetAllClasses(); 
         
+        }
+        public void AddClasses(Classs classs)
+        {
+            _Classs.AddClasses(classs);
         }
     }
 }
