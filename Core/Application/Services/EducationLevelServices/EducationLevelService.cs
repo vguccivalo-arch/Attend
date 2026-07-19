@@ -1,6 +1,5 @@
 using Domain.Entities;
 using Application.Interfaces;
-using System.IO.Pipes;
 namespace Application.Services.EDucationLevelServices
 {
     public class  EDucationLevelService : IEducationLevelService
