@@ -1,0 +1,34 @@
+@using Application.Services.AttendanceServices
+@using  Domain.Entities
+@using Infrastructure.Migrations
+@rendermode InteractiveServer
+@inject NavigationManager navigation
+@inject  IAttendanceService AttendanceService
+@page "/Add/Attendance"
+<h1>Add Attendance</h1>
+<div>
+    <EditForm>
+        <div>
+            <label for="studentId">Student ID</label>
+            <   InputNumber id="studentId" class="form-control" @bind-Value="attendance.StudentId" />
+        </div>
+        <div>
+            <label for="date">Date</label>
+            <   InputDate id="date" class="form-control" @bind-Value="attendance.Date" />
+        </div>
+        <div>
+            <label for="status">Status</label>
+            <   InputText id="status" class="form-control" @bind-Value="attendance.Status" />
+        </div>
+    </EditForm>
+</div>
+
+
+@code{
+ private Attendance attendance=new ();
+ public void SaveAttendance()
+ {
+            AttendanceService.AddAttendance(attendance);
+            navigation.NavigateTo( "/Attendance");
+ }
+}

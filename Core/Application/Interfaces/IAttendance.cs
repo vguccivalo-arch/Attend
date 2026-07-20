@@ -4,5 +4,6 @@ namespace Application.Interfaces
    public interface IAttendance
     {
         public List<Attendance>GetAllAttendances();
+         public void AddAttendance(Attendance attendance);
     } 
 }

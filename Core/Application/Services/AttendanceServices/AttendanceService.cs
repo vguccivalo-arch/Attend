@@ -13,6 +13,10 @@ namespace Application.Services.AttendanceServices
         {
             return _ATTENDANCE.GetAllAttendances();
         }
-
+         public void AddAttendance(Attendance attendance)
+        {
+            _ATTENDANCE.AddAttendance(attendance);
+        }
+        
     }
 }

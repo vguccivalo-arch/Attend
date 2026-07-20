@@ -1,15 +1,23 @@
 using Domain.Entities;
 using Application.Interfaces;
+using Infrastructure.Data;
 namespace Infrastructure.Repositories
 {
     public class AttendanceRepository :IAttendance
     {
+        private readonly ApplicationDBContext _dbcontext;
+        public AttendanceRepository (ApplicationDBContext dBContext)
+        {
+            _dbcontext=dBContext;
+        }
         public List<Attendance> GetAllAttendances()
         {
-            return new List<Attendance>
-            {
-                new Attendance{Id=1,ClassId=2,Date=new DateTime(2026/7/7),Status="Present"}
-            };
+            return _dbcontext.Attendances.ToList();
+        }
+        public void AddAttendance(Attendance attendance)
+        {
+            _dbcontext.Attendances.Add(attendance);
+            _dbcontext.SaveChanges();
         }
     }
 }
