@@ -1,0 +1,53 @@
+@using Application.Services.ClassesServices
+@inject IClassesService ClassesService
+@page "/Classes/{id:int}"
+@using Domain.Entities
+<h1>Class Details</h1>
+<div>
+    <div class="form-group">
+        <label>Id</label>
+        <small class="form-control">@classs.Id</small>
+    </div>
+    <div class="form-group">
+        <label>Name</label>
+        <small class="form-control">@classs.ClassName</small>
+    </div>
+    <div class="form-group">
+        <label>Class code</label>
+        <small class="form-control">@classs.Classcode</small>
+    </div>  
+    <div class="form-group">
+        <label>Instructor Name</label>
+        <small class="form-control">@classs.InstructorName</small>
+    </div>
+    <div class="form-group">
+        <label>Department</label>
+        <small class="form-control">@classs.Department</small>
+    </div>
+    <div class="form-group">
+        <label>Schoolyear</label>
+        <small class="form-control">@classs.Schoolyear</small>
+    </div>
+    <div>
+        <label> User Added</label>
+        <small class="form-control">@classs.useradded</small>
+    </div>
+    <div class="form-group">
+        <label>Date Added</label>
+        <small class="form-control">@classs.DateAdded</small>
+    </div>
+    <div class="form-group">
+        <label>Status</label>
+        <small class="form-control">@classs.Status</small>
+    </div>
+    </div>
+@code{
+    [Parameter]
+    public int Id{get;set;}
+    private Classs? classs;
+    protected override void OnParametersSet()
+    {
+       classs=ClassesService.GetClassById(Id);
+    }
+
+    }

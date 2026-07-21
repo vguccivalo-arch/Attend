@@ -5,5 +5,6 @@ namespace Application.Interfaces
     {
        public List<Classs>GetAllClasses();
        public void AddClasses (Classs classs);
+       public Classs? GetClassById(int id);
     }
 }

@@ -2,6 +2,7 @@
  using Application.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Runtime.InteropServices;
 namespace Infrastructure.Repositories
 {
     public class ClassRepository :Iclass
@@ -19,6 +20,10 @@ namespace Infrastructure.Repositories
         {
             _dbcontext.classes.Add(classs);
             _dbcontext.SaveChanges();
+        }
+        public Classs? GetClassById(int id)
+        {
+    return _dbcontext.classes.FirstOrDefault(CC => CC.Id==id);
         }
 
     }

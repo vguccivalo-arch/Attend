@@ -19,5 +19,9 @@ using Domain.Entities;
         {
             _Classs.AddClasses(classs);
         }
+        public Classs? GetClassById(int id)
+        {
+            return _Classs.GetClassById(id);
+        }
     }
 }

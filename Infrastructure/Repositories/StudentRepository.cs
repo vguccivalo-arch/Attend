@@ -21,11 +21,26 @@ namespace Infrastructure.Repositories
       _dbcontext.Students.Add(student);
       _dbcontext.SaveChanges();
     }
-    public Student GetStudentById(int id)
+    public Student? GetStudentById(int id)
         {
             return _dbcontext.Students.FirstOrDefault(s => s.Id == id);
 
         }
+        public void UpdateStudent(Student student)
+    {
+      //  _dbcontext.Students.Update(student);
+      // _dbcontext.SaveChanges();
+      var ExistingStudent=_dbcontext.Students.FirstOrDefault(s => s.Id ==student.Id);
+      if (ExistingStudent != null)
+      {
+        ExistingStudent.FullName=student.FullName;
+        ExistingStudent.DateOfBirth=student.DateOfBirth;
+        ExistingStudent.Email=student.Email;
+
+
+        _dbcontext.SaveChanges();
+      }
+    }
     }
     
 }

@@ -6,5 +6,7 @@ namespace Application.Services.ClassStudentServices
     {
         public List<classstudent>GetAllClassStudent();
         public void AddClassStudent (classstudent classStudent);
+        
+        
     }
 }

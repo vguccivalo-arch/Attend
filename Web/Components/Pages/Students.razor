@@ -20,7 +20,7 @@
         <th>useradded</th>
         <th>DateAdded</th>
         <th>Status</th>
-        <th>ViewDetails</th>
+        <th>Action</th>
 
     </tr>
     </thead>
@@ -40,7 +40,7 @@
             <td>@student.UserAdded</td>
             <td>@student.DateAdded</td>
             <td>@student.Status</td>
-            <th><a href="/students/@student.Id" class="btn btn-primary">ViewDetails</a></th>
+            <th><a href="/students/@student.Id" class="btn btn-primary">ViewDetails</a><a href="/students/Update/@student.Id">Update</a></th>
 
         </tr>
     }
