@@ -1,0 +1,36 @@
+@using Domain.Entities
+@using Application.Services.StudentServices
+@inject IStudentService StudentService
+@inject NavigationManager navigation
+@page "/Students/Delete/{id:int}"
+@rendermode InteractiveServer
+
+<div>
+    <EditForm OnValidSubmit="RemoveStudent" Model="student">
+        <label>You are Deleting Student: </label><label>@student.Id:@student.FullName</label>
+<button class="btn btn-danger" type="submit">Delete</button>
+    </EditForm>
+</div>
+
+
+@code{
+    [Parameter]
+    public int Id{get;set;}
+    private Student? existingStudent;
+    public Student student=new();
+    protected override void OnParametersSet()
+    {
+       existingStudent=StudentService.GetStudentById(Id);
+       if(existingStudent !=null)
+       {
+         student=existingStudent;
+       }
+
+    }
+    public void RemoveStudent()
+    {
+        StudentService.DeleteStudent(student);
+        navigation.NavigateTo( "/Students");
+    }
+
+}

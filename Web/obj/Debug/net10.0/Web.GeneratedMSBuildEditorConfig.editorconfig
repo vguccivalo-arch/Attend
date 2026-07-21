@@ -35,10 +35,6 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vgucc/PROJECTS/Attend/Web/Components/Pages/@UpdateStudent.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xAVXBkYXRlU3R1ZGVudC5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/vgucc/PROJECTS/Attend/Web/Components/Pages/AddAttendance.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZGRBdHRlbmRhbmNlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -79,6 +75,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb3VudGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/vgucc/PROJECTS/Attend/Web/Components/Pages/DeleteStudent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xEZWxldGVTdHVkZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/vgucc/PROJECTS/Attend/Web/Components/Pages/EducationLevelPage.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFZHVjYXRpb25MZXZlbFBhZ2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -101,6 +101,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/vgucc/PROJECTS/Attend/Web/Components/Pages/Students.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTdHVkZW50cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vgucc/PROJECTS/Attend/Web/Components/Pages/UpdateStudent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVcGRhdGVTdHVkZW50LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/vgucc/PROJECTS/Attend/Web/Components/Pages/Weather.razor]

@@ -28,6 +28,10 @@ namespace Application.Services.StudentServices
     {
       _student.UpdateStudent(student);
     }
+    public void DeleteStudent(Student student)
+    {
+      _student.DeleteStudent(student);
+    }
     }
      
 }

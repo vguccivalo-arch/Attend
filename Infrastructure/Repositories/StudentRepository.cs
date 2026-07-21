@@ -2,6 +2,7 @@
  using Application.Interfaces;
  using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Runtime.CompilerServices;
 namespace Infrastructure.Repositories
 {
     public class StudentRepository : IStudent
@@ -18,7 +19,20 @@ namespace Infrastructure.Repositories
     }
     public void AddStudent(Student student)
     {
-      _dbcontext.Students.Add(student);
+      _dbcontext.Students.Add(new Student
+      {
+        FullName=student.FullName,
+        Sex=student.Sex,
+        DateOfBirth=student.DateOfBirth,
+        Phone=student.Phone,
+        Email=student.Email,
+        Address=student.Address,
+        ParentNames=student.ParentNames,
+        ParentPhoneNumber=student.ParentPhoneNumber,
+        UserAdded="Admin",
+        DateAdded=DateTime.UtcNow,
+        Status="Active"
+      });
       _dbcontext.SaveChanges();
     }
     public Student? GetStudentById(int id)
@@ -41,6 +55,16 @@ namespace Infrastructure.Repositories
         _dbcontext.SaveChanges();
       }
     }
+   public void DeleteStudent(Student student)
+{
+    var existingStudent = _dbcontext.Students.FirstOrDefault(ss => ss.Id == student.Id);
+    
+    if (existingStudent != null)
+    {
+        existingStudent.Status = "Deleted";
+        _dbcontext.SaveChanges();
+    }
+}
     }
     
 }

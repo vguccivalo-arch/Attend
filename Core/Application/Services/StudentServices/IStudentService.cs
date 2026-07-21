@@ -7,6 +7,7 @@ public interface IStudentService
     public void AddStudent (Student student);
       public Student? GetStudentById (int id);
       public void UpdateStudent(Student student);
+      public void DeleteStudent(Student student);
 
 }
 

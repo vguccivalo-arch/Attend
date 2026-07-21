@@ -3,9 +3,10 @@
 @using Domain.Entities
 @inject NavigationManager Navigation
 @inject IStudentService StudentService
+
 <h1>Students List</h1>
 <a class="btn btn-primary" href="/students/Add">Add Student</a>
-<table class="table">
+<table class="table table-striped">
     <thead>
  <tr>
         <th>Id</th>
@@ -37,10 +38,10 @@
             <td>@student.Address</td>
             <td>@student.ParentNames</td>
             <td>@student.ParentPhoneNumber</td>
-            <td>@student.UserAdded</td>
+            @* <td>@student.UserAdded</td>
             <td>@student.DateAdded</td>
-            <td>@student.Status</td>
-            <th><a href="/students/@student.Id" class="btn btn-primary">ViewDetails</a><a href="/students/Update/@student.Id">Update</a></th>
+            <td>@student.Status</td> *@
+            <th><a href="/students/@student.Id" class="btn btn-primary">ViewDetails</a></th>
 
         </tr>
     }
