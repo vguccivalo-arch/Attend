@@ -2,7 +2,7 @@
 @inject IStudentService StudentService
 @rendermode InteractiveServer
 @using Application.Services.StudentServices
-@using Domain.Entities
+@using Application.DTOs
 @page "/Students/Update/{id:int}"
 
 <h1>Update Student</h1>
@@ -26,15 +26,18 @@
 @code{
     [Parameter]
     public int id {get;set;}
-    public Student? existingStudent;
-    public Student student=new();
+    public GetStudentDTO? existingStudent;
+    public UpdateStudentDTO student=new();
     protected override void OnParametersSet()
     {
        existingStudent=StudentService.GetStudentById(id);
        if(existingStudent!=null)
         {
         
-           student=existingStudent;
+        student.Id=existingStudent.Id;
+        student.FullName=existingStudent.FullName;
+        student.DateOfBirth=existingStudent.DateOfBirth;
+        student.Email=existingStudent.Email;
         
 
        }

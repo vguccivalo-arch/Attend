@@ -1,7 +1,7 @@
 
 @rendermode InteractiveServer
 @using Infrastructure.Migrations
-@using Domain.Entities
+@using Application.DTOs
 @inject NavigationManager Navigation
 @page "/students/add"
 @using Application.Services.StudentServices
@@ -64,7 +64,7 @@
 </div>
 
 @code{
-    private Student student= new ();
+    private AddStudentDTO student= new ();
     private void SaveStudent()
     {
      StudentService.AddStudent(student);

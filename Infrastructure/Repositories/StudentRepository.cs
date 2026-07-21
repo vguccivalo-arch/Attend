@@ -3,6 +3,7 @@
  using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Runtime.CompilerServices;
+using Application.DTOs;
 namespace Infrastructure.Repositories
 {
     public class StudentRepository : IStudent
@@ -12,12 +13,27 @@ namespace Infrastructure.Repositories
     {
       _dbcontext=dBContext;
     }
-    public List<Student>GetAllStudents()
+    public List<GetStudentDTO>GetAllStudents()
       {
-        return _dbcontext.Students.ToList();
+        return _dbcontext.Students.Select( s => new GetStudentDTO
+        {
+               Id=s.Id,
+               FullName=s.FullName,
+               Sex=s.Sex,
+               DateOfBirth=s.DateOfBirth,
+               Phone=s.Phone,
+               Email=s.Email,
+               Address=s.Address,
+               ParentNames=s.ParentNames,
+               ParentPhoneNumber=s.ParentPhoneNumber,
+               UserAdded=s.UserAdded,
+               DateAdded=s.DateAdded,
+               Status=s.Status,
+       
+        } ).ToList();
             
     }
-    public void AddStudent(Student student)
+    public void AddStudent(AddStudentDTO student)
     {
       _dbcontext.Students.Add(new Student
       {
@@ -35,12 +51,26 @@ namespace Infrastructure.Repositories
       });
       _dbcontext.SaveChanges();
     }
-    public Student? GetStudentById(int id)
+    public GetStudentDTO? GetStudentById(int id)
         {
-            return _dbcontext.Students.FirstOrDefault(s => s.Id == id);
+            return _dbcontext.Students.Where (s => s.Id == id).Select(s=> new GetStudentDTO
+            {
+               Id=s.Id,
+               FullName=s.FullName,
+               Sex=s.Sex,
+               DateOfBirth=s.DateOfBirth,
+               Phone=s.Phone,
+               Email=s.Email,
+               Address=s.Address,
+               ParentNames=s.ParentNames,
+               ParentPhoneNumber=s.ParentPhoneNumber,
+               UserAdded=s.UserAdded,
+               DateAdded=s.DateAdded,
+               Status=s.Status,
+            } ).FirstOrDefault(s => s.Id == id);
 
         }
-        public void UpdateStudent(Student student)
+        public void UpdateStudent(UpdateStudentDTO student)
     {
       //  _dbcontext.Students.Update(student);
       // _dbcontext.SaveChanges();
@@ -55,7 +85,7 @@ namespace Infrastructure.Repositories
         _dbcontext.SaveChanges();
       }
     }
-   public void DeleteStudent(Student student)
+   public void DeleteStudent(DeleteStudentDTO student)
 {
     var existingStudent = _dbcontext.Students.FirstOrDefault(ss => ss.Id == student.Id);
     
