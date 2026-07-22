@@ -1,0 +1,52 @@
+@page "/Classes/Delete/{id:int}"
+@using Application.Services.ClassesServices
+@using Application.DTOs
+@inject IClassesService ClassesService
+@inject NavigationManager navigation
+@rendermode InteractiveServer
+<h1>Delete Class</h1>
+
+   
+    <div>
+         <EditForm OnValidSubmit="RemoveClass" Model="classs">
+             <p>Are you sure you want to delete this class?</p>
+        <div class="form-group">
+            <label>Id</label>
+            <small class="form-control">@classs?.Id</small>
+      
+    </div>
+   
+    
+
+    <button class="btn btn-danger" @onclick="RemoveClass">Delete</button>
+    <button class="btn btn-secondary" @onclick="Cancel">Cancel</button>
+       </EditForm>
+</div>
+@code{
+    [Parameter]
+    public int id { get; set; }
+    private GetCLassDTO? existingclass;
+    public DeleteClassDTO classs=new();
+    protected override void OnParametersSet()
+    {
+        existingclass = ClassesService.GetClassById(id);
+        if(existingclass !=null)
+        {
+         classs.Id=existingclass.Id;
+        }
+    }
+
+    private void RemoveClass()
+    {
+       
+        {
+            ClassesService.DeleteClass(classs);
+            navigation.NavigateTo("/Classes");
+        }
+    }
+
+    private void Cancel()
+    {
+        navigation.NavigateTo("/Classes");
+    }
+}

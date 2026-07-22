@@ -1,4 +1,5 @@
 
+using Application.DTOs;
 using Application.Interfaces;
 using Domain.Entities;
  namespace Application.Services.ClassesServices
@@ -10,18 +11,26 @@ using Domain.Entities;
         {
         _Classs=classs;
         }
-        public List<Classs>GetAllClasses()
+        public List<GetCLassDTO>GetAllClasses()
         {
             return _Classs.GetAllClasses(); 
         
         }
-        public void AddClasses(Classs classs)
+        public void AddClasses(AddClassDTO classs)
         {
             _Classs.AddClasses(classs);
         }
-        public Classs? GetClassById(int id)
+        public GetCLassDTO? GetClassById(int id)
         {
             return _Classs.GetClassById(id);
+        }
+        public void UpdateClass(UpdateClassDTO classs)
+        {
+            _Classs.UpdateClass(classs);
+        }
+        public void DeleteClass(DeleteClassDTO classs)
+        {
+            _Classs.DeleteClass(classs);
         }
     }
 }

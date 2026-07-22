@@ -1,6 +1,6 @@
 @page "/Classes"
 @using Application.Services.ClassesServices
-@using Domain.Entities
+@using Application.DTOs
 @inject NavigationManager Navigation
 @inject IClassesService ClassesService
 <h1>Classes</h1>
@@ -38,13 +38,13 @@
             <td>@Class.EducationLevelId</td>
             <td>@Class.FacultyId</td>
             <td>
-                <a class="btn btn-primary" href="/Classes/@Class.Id">Edit</a>
+                <a class="btn btn-primary" href="/Classes/@Class.Id">ViewDetails</a>
             </td>
         </tr>
     }
 </table>
 @code{
-       private List<Classs>classs =new List<Classs>();
+       private List<GetCLassDTO>classs =new List<GetCLassDTO>();
     protected override void OnInitialized()  
     {
     classs = ClassesService.GetAllClasses();

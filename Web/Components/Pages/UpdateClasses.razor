@@ -1,0 +1,64 @@
+@rendermode InteractiveServer
+@inject NavigationManager navigation
+@inject IClassesService ClassesService
+@using Application.Services.ClassesServices
+@page "/Classes/Update/{id:int}"
+@using Application.DTOs
+<h1>Update Class</h1>
+<div >
+<EditForm OnValidSubmit="EditClass" Model="@classs">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="form-group">
+        <label>Class Name</label>
+        <InputText  @bind-Value="classs.ClassName" class="form-control"></InputText>
+    </div>
+     <div class="form-group">
+        <label>Class code</label>
+        <InputText @bind-Value="classs.Classcode" class="form-control"></InputText>
+    </div>
+     <div class="form-group">
+        <label>Instructor Name</label>
+        <InputText @bind-Value="classs.InstructorName" class="form-control"></InputText>
+    </div>
+     <div class="form-group">
+        <label>Department</label>
+        <InputText @bind-Value="classs.Department" class="form-control"></InputText>
+    </div>
+     <div class="form-group">
+        <label>School year</label>
+        <InputText @bind-Value="classs.Schoolyear" class="form-control"></InputText>
+    </div>
+     <button type="submit" class="btn btn-primary">Update</button>
+</EditForm>
+</div>
+@code
+{
+    [Parameter]
+    public int id {get;set;}
+    public GetCLassDTO? existingclass;
+    public UpdateClassDTO classs=new ();
+    protected override void OnInitialized()
+    {
+        existingclass=ClassesService.GetClassById(id);
+        if (existingclass !=null)
+        {
+            classs.Id=existingclass.Id;
+            classs.ClassName=existingclass.ClassName;
+            classs.Classcode=existingclass.Classcode;
+            classs.InstructorName=existingclass.InstructorName;
+            classs.Department=existingclass.Department;
+            classs.Schoolyear=existingclass.Schoolyear;
+            classs.EducationLevelId=existingclass.EducationLevelId;
+
+
+
+        }
+    }
+   public void EditClass()
+   {
+   ClassesService.UpdateClass(classs);
+   navigation.NavigateTo("Classes");
+   }
+
+}

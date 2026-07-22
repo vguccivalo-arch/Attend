@@ -13,9 +13,9 @@ namespace Infrastructure.Repositories
     {
       _dbcontext=dBContext;
     }
-    public List<GetStudentDTO>GetAllStudents()
+    public async Task<List<GetStudentDTO>>GetAllStudentsAsync()
       {
-        return _dbcontext.Students.Select( s => new GetStudentDTO
+        return await _dbcontext.Students.Select( s => new GetStudentDTO
         {
                Id=s.Id,
                FullName=s.FullName,
@@ -30,10 +30,10 @@ namespace Infrastructure.Repositories
                DateAdded=s.DateAdded,
                Status=s.Status,
        
-        } ).ToList();
+        } ).ToListAsync();
             
     }
-    public void AddStudent(AddStudentDTO student)
+    public  async Task AddStudentAsyn(AddStudentDTO student)
     {
       _dbcontext.Students.Add(new Student
       {
@@ -49,11 +49,11 @@ namespace Infrastructure.Repositories
         DateAdded=DateTime.UtcNow,
         Status="Active"
       });
-      _dbcontext.SaveChanges();
+     await _dbcontext.SaveChangesAsync();
     }
-    public GetStudentDTO? GetStudentById(int id)
+    public async Task <GetStudentDTO?> GetStudentByIdAsync(int id)
         {
-            return _dbcontext.Students.Where (s => s.Id == id).Select(s=> new GetStudentDTO
+            return await _dbcontext.Students.Where (s => s.Id == id).Select(s=> new GetStudentDTO
             {
                Id=s.Id,
                FullName=s.FullName,
@@ -67,14 +67,15 @@ namespace Infrastructure.Repositories
                UserAdded=s.UserAdded,
                DateAdded=s.DateAdded,
                Status=s.Status,
-            } ).FirstOrDefault(s => s.Id == id);
+            } ).FirstOrDefaultAsync(s => s.Id == id);
 
         }
-        public void UpdateStudent(UpdateStudentDTO student)
+        public async Task UpdateStudent(UpdateStudentDTO student)
     {
+      
       //  _dbcontext.Students.Update(student);
       // _dbcontext.SaveChanges();
-      var ExistingStudent=_dbcontext.Students.FirstOrDefault(s => s.Id ==student.Id);
+      var ExistingStudent=await _dbcontext.Students.FirstOrDefaultAsync(s => s.Id ==student.Id);
       if (ExistingStudent != null)
       {
         ExistingStudent.FullName=student.FullName;
@@ -82,17 +83,17 @@ namespace Infrastructure.Repositories
         ExistingStudent.Email=student.Email;
 
 
-        _dbcontext.SaveChanges();
+      await  _dbcontext.SaveChangesAsync();
       }
     }
-   public void DeleteStudent(DeleteStudentDTO student)
+   public async Task DeleteStudentAsync(DeleteStudentDTO student)
 {
-    var existingStudent = _dbcontext.Students.FirstOrDefault(ss => ss.Id == student.Id);
+    var existingStudent = await _dbcontext.Students.FirstOrDefaultAsync(ss => ss.Id == student.Id);
     
     if (existingStudent != null)
     {
         existingStudent.Status = "Deleted";
-        _dbcontext.SaveChanges();
+       await  _dbcontext.SaveChangesAsync();
     }
 }
     }

@@ -6,7 +6,7 @@
 @page "/Students/Update/{id:int}"
 
 <h1>Update Student</h1>
-<EditForm Model="@student" OnValidSubmit="EditStudent">
+<EditForm Model="@student" OnValidSubmit="EditStudentAsync">
     <DataAnnotationsValidator />
     <ValidationSummary />
     <div class="form-group">
@@ -28,9 +28,9 @@
     public int id {get;set;}
     public GetStudentDTO? existingStudent;
     public UpdateStudentDTO student=new();
-    protected override void OnParametersSet()
+    protected override async Task OnParametersSetAsync()
     {
-       existingStudent=StudentService.GetStudentById(id);
+       existingStudent=await StudentService.GetStudentByIdAsync(id);
        if(existingStudent!=null)
         {
         
@@ -43,9 +43,9 @@
        }
        
     }
-     public void EditStudent()
+     public async Task EditStudentAsync()
      {
-     StudentService.UpdateStudent(student);
+     await StudentService.UpdateStudentAsync(student);
      navigation.NavigateTo("/Students");
      }
    

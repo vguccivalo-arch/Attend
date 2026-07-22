@@ -8,7 +8,7 @@
 
 @inject IStudentService StudentService
 <div>
-    <EditForm Model="student" OnValidSubmit="SaveStudent">
+    <EditForm Model="student" OnValidSubmit="SaveStudentAsync">
         <h1>Add Student</h1>
         <div class="form-group">
             <label class="form-label">Name:</label>
@@ -65,9 +65,9 @@
 
 @code{
     private AddStudentDTO student= new ();
-    private void SaveStudent()
+    private async Task SaveStudentAsync()
     {
-     StudentService.AddStudent(student);
+    await StudentService.AddStudentAsync(student);
      Navigation.NavigateTo ("/students");
     }
 }
