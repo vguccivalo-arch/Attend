@@ -51,9 +51,9 @@ namespace Infrastructure.Repositories
       });
      await _dbcontext.SaveChangesAsync();
     }
-    public async Task <GetStudentDTO?> GetStudentByIdAsync(int id)
+    public async Task<GetStudentDTO?> GetStudentByIdAsync(int id)
         {
-            return await _dbcontext.Students.Where (s => s.Id == id).Select(s=> new GetStudentDTO
+            return await _dbcontext.Students.Where(s => s.Id == id).Select(s => new GetStudentDTO
             {
                Id=s.Id,
                FullName=s.FullName,
@@ -67,7 +67,7 @@ namespace Infrastructure.Repositories
                UserAdded=s.UserAdded,
                DateAdded=s.DateAdded,
                Status=s.Status,
-            } ).FirstOrDefaultAsync(s => s.Id == id);
+            }).FirstOrDefaultAsync();
 
         }
         public async Task UpdateStudentAsync(UpdateStudentDTO student)
@@ -75,7 +75,7 @@ namespace Infrastructure.Repositories
       
       //  _dbcontext.Students.Update(student);
       // _dbcontext.SaveChanges();
-      var ExistingStudent=await _dbcontext.Students.FirstOrDefaultAsync(s => s.Id ==student.Id);
+      var ExistingStudent= await _dbcontext.Students.FirstOrDefaultAsync(s => s.Id ==student.Id);
       if (ExistingStudent != null)
       {
         ExistingStudent.FullName=student.FullName;
@@ -83,7 +83,7 @@ namespace Infrastructure.Repositories
         ExistingStudent.Email=student.Email;
 
 
-      await  _dbcontext.SaveChangesAsync();
+      await _dbcontext.SaveChangesAsync();
       }
     }
    public async Task DeleteStudentAsync(DeleteStudentDTO student)

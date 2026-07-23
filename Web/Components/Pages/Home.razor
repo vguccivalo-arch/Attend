@@ -1,7 +1,83 @@
 ﻿@page "/"
+@inject NavigationManager Navigation
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Attend - Dashboard</PageTitle>
 
-<h1>Hello, world!</h1>
+<div class="container-fluid py-4 text-white" style="background: linear-gradient(180deg, rgb(56, 189, 248) 0%, #0f172a 70%); min-height: 85vh; border-radius: 0.75rem;">
+    <!-- Welcome Header Section -->
+    <div class="p-5 mb-4 rounded-3 shadow-lg" style="background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1);">
+        <div class="container-fluid py-2">
+            <h1 class="display-5 fw-bold mb-3">Welcome to Attend</h1>
+            <p class="fs-5 text-light mb-4 opacity-75">Your central hub for class attendance tracking, student management, and academic updates.</p>
+            <div class="d-flex gap-3">
+                <button class="btn btn-info fw-semibold px-4 py-2 text-dark" @onclick="NavigateToAttendance">Take Attendance</button>
+                <button class="btn btn-outline-info fw-semibold px-4 py-2 text-white" @onclick="NavigateToStudents">View Students</button>
+            </div>
+        </div>
+    </div>
 
-Welcome to your new app.
+    <!-- Quick Stats Overview Cards -->
+    <div class="row g-4 mb-4">
+        <div class="col-xl-3 col-md-6">
+            <div class="p-4 rounded-3 shadow-sm d-flex align-items-center gap-3" style="background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.05);">
+                <div class="fs-2 p-3 rounded-2" style="background: rgba(56, 189, 248, 0.15);">👥</div>
+                <div>
+                    <h3 class="fs-6 text-uppercase text-muted mb-1">Total Students</h3>
+                    <p class="fs-3 fw-bold mb-0 text-white">--</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+            <div class="p-4 rounded-3 shadow-sm d-flex align-items-center gap-3" style="background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.05);">
+                <div class="fs-2 p-3 rounded-2" style="background: rgba(56, 189, 248, 0.15);">✅</div>
+                <div>
+                    <h3 class="fs-6 text-uppercase text-muted mb-1">Present Today</h3>
+                    <p class="fs-3 fw-bold mb-0 text-white">--</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+            <div class="p-4 rounded-3 shadow-sm d-flex align-items-center gap-3" style="background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.05);">
+                <div class="fs-2 p-3 rounded-2" style="background: rgba(56, 189, 248, 0.15);">⚠️</div>
+                <div>
+                    <h3 class="fs-6 text-uppercase text-muted mb-1">Absent / Late</h3>
+                    <p class="fs-3 fw-bold mb-0 text-white">--</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+            <div class="p-4 rounded-3 shadow-sm d-flex align-items-center gap-3" style="background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.05);">
+                <div class="fs-2 p-3 rounded-2" style="background: rgba(56, 189, 248, 0.15);">📚</div>
+                <div>
+                    <h3 class="fs-6 text-uppercase text-muted mb-1">Active Classes</h3>
+                    <p class="fs-3 fw-bold mb-0 text-white">--</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Announcements / Info Section -->
+    <div class="mb-3">
+        <h2 class="h4 mb-3">Announcements & Information</h2>
+        <div class="p-4 rounded-3 shadow-sm" style="background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.05);">
+            <h4 class="h5 text-info mb-2">📢 System Notice</h4>
+            <p class="mb-2 text-light">Welcome back to the new term. Ensure all attendance rosters are submitted by the end of each session.</p>
+            <span class="small text-muted">Updated Today</span>
+        </div>
+    </div>
+</div>
+
+@code {
+    private void NavigateToAttendance()
+    {
+        // Navigation.NavigateTo("/attendance");
+    }
+
+    private void NavigateToStudents()
+    {
+        // Navigation.NavigateTo("/students");
+    }
+}

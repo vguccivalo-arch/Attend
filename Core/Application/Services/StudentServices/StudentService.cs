@@ -21,7 +21,7 @@ namespace Application.Services.StudentServices
     {
      await  _student.AddStudentAsync(student);
     }
-     public async Task <GetStudentDTO?> GetStudentByIdAsync(int id)
+     public async Task<GetStudentDTO?> GetStudentByIdAsync(int id)
         {
             return await _student.GetStudentByIdAsync(id);
         }
