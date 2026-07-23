@@ -11,26 +11,26 @@ using Domain.Entities;
         {
         _Classs=classs;
         }
-        public List<GetCLassDTO>GetAllClasses()
+        public async Task <List<GetCLassDTO>>GetAllClassesAsync()
         {
-            return _Classs.GetAllClasses(); 
+            return await _Classs.GetAllClassesAsync(); 
         
         }
-        public void AddClasses(AddClassDTO classs)
+        public async Task AddClassesAsync(AddClassDTO classs)
         {
-            _Classs.AddClasses(classs);
+           await  _Classs.AddClassesAsync(classs);
         }
-        public GetCLassDTO? GetClassById(int id)
+        public async Task <GetCLassDTO?> GetClassByIdAsync(int id)
         {
-            return _Classs.GetClassById(id);
+            return await  _Classs.GetClassByIdAsync(id);
         }
-        public void UpdateClass(UpdateClassDTO classs)
+        public async Task UpdateClassAsync(UpdateClassDTO classs)
         {
-            _Classs.UpdateClass(classs);
+           await  _Classs.UpdateClassAsync(classs);
         }
-        public void DeleteClass(DeleteClassDTO classs)
+        public async Task  DeleteClassAsync(DeleteClassDTO classs)
         {
-            _Classs.DeleteClass(classs);
+           await  _Classs.DeleteClassAsync(classs);
         }
     }
 }

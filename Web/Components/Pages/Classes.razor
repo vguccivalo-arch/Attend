@@ -45,8 +45,8 @@
 </table>
 @code{
        private List<GetCLassDTO>classs =new List<GetCLassDTO>();
-    protected override void OnInitialized()  
+    protected override async Task OnInitializedAsync()  
     {
-    classs = ClassesService.GetAllClasses();
+    classs = await ClassesService.GetAllClassesAsync();
     }
 }

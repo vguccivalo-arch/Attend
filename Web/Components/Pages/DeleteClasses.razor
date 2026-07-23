@@ -8,7 +8,7 @@
 
    
     <div>
-         <EditForm OnValidSubmit="RemoveClass" Model="classs">
+         <EditForm OnValidSubmit="RemoveClassAsync" Model="classs">
              <p>Are you sure you want to delete this class?</p>
         <div class="form-group">
             <label>Id</label>
@@ -18,7 +18,7 @@
    
     
 
-    <button class="btn btn-danger" @onclick="RemoveClass">Delete</button>
+    <button class="btn btn-danger" @onclick="RemoveClassAsync">Delete</button>
     <button class="btn btn-secondary" @onclick="Cancel">Cancel</button>
        </EditForm>
 </div>
@@ -27,20 +27,20 @@
     public int id { get; set; }
     private GetCLassDTO? existingclass;
     public DeleteClassDTO classs=new();
-    protected override void OnParametersSet()
+    protected override async Task  OnParametersSetAsync()
     {
-        existingclass = ClassesService.GetClassById(id);
+        existingclass = await ClassesService.GetClassByIdAsync(id);
         if(existingclass !=null)
         {
          classs.Id=existingclass.Id;
         }
     }
 
-    private void RemoveClass()
+    private async Task RemoveClassAsync()
     {
        
         {
-            ClassesService.DeleteClass(classs);
+            await ClassesService.DeleteClassAsync(classs);
             navigation.NavigateTo("/Classes");
         }
     }

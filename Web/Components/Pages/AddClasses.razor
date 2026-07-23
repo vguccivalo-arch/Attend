@@ -6,7 +6,7 @@
 @inject NavigationManager navigation
 @page "/Classes/Add"
 <div>
-    <EditForm Model="classs" OnValidSubmit="SaveClass">
+    <EditForm Model="classs" OnValidSubmit="SaveClassAsync">
       
         <h1>Add Classes</h1>
         <div class="form-group">
@@ -49,9 +49,9 @@
 
 @code{
     private AddClassDTO classs= new ();
-    private void SaveClass()
+    private async Task SaveClassAsync()
     {
-    ClassesService.AddClasses(classs);
+   await  ClassesService.AddClassesAsync(classs);
     navigation.NavigateTo( "/Classes");
     }
 }

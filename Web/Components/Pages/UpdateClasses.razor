@@ -6,7 +6,7 @@
 @using Application.DTOs
 <h1>Update Class</h1>
 <div >
-<EditForm OnValidSubmit="EditClass" Model="@classs">
+<EditForm OnValidSubmit="EditClassAsync" Model="@classs">
     <DataAnnotationsValidator />
     <ValidationSummary />
     <div class="form-group">
@@ -38,9 +38,9 @@
     public int id {get;set;}
     public GetCLassDTO? existingclass;
     public UpdateClassDTO classs=new ();
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        existingclass=ClassesService.GetClassById(id);
+        existingclass=await ClassesService.GetClassByIdAsync(id);
         if (existingclass !=null)
         {
             classs.Id=existingclass.Id;
@@ -55,9 +55,9 @@
 
         }
     }
-   public void EditClass()
+   public async Task  EditClassAsync()
    {
-   ClassesService.UpdateClass(classs);
+   await ClassesService.UpdateClassAsync(classs);
    navigation.NavigateTo("Classes");
    }
 

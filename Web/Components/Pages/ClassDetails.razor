@@ -47,9 +47,9 @@
     [Parameter]
     public int Id{get;set;}
     private GetCLassDTO? classs;
-    protected override void OnParametersSet()
+    protected override async Task OnParametersSetAsync()
     {
-       classs=ClassesService.GetClassById(Id);
+       classs= await ClassesService.GetClassByIdAsync(Id);
     }
 
     }

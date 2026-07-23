@@ -33,7 +33,7 @@ namespace Infrastructure.Repositories
         } ).ToListAsync();
             
     }
-    public  async Task AddStudentAsyn(AddStudentDTO student)
+    public  async Task AddStudentAsync(AddStudentDTO student)
     {
       _dbcontext.Students.Add(new Student
       {
@@ -70,7 +70,7 @@ namespace Infrastructure.Repositories
             } ).FirstOrDefaultAsync(s => s.Id == id);
 
         }
-        public async Task UpdateStudent(UpdateStudentDTO student)
+        public async Task UpdateStudentAsync(UpdateStudentDTO student)
     {
       
       //  _dbcontext.Students.Update(student);
