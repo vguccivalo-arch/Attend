@@ -33,6 +33,10 @@ namespace Application.Services.StudentServices
     {
       await _student.DeleteStudentAsync(student);
     }
+    public async Task RestoreStudentAsync(RestoreStudentDTO student)
+    {
+     await _student.RestoreStudentAsync(student);
+    }
     }
      
 }

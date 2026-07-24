@@ -9,6 +9,7 @@ public interface IStudentService
       Task<GetStudentDTO?> GetStudentByIdAsync(int id);
       Task  UpdateStudentAsync(UpdateStudentDTO student);
       Task DeleteStudentAsync(DeleteStudentDTO student);
+      Task RestoreStudentAsync(RestoreStudentDTO student);
 
 }
 

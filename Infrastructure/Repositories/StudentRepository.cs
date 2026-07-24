@@ -96,6 +96,17 @@ namespace Infrastructure.Repositories
        await  _dbcontext.SaveChangesAsync();
     }
 }
+    
+      public async Task RestoreStudentAsync(RestoreStudentDTO student)
+{
+    var existingStudent = await _dbcontext.Students.FirstOrDefaultAsync(ss => ss.Id == student.Id);
+    
+    if (existingStudent != null)
+    {
+        existingStudent.Status = "Active";
+       await  _dbcontext.SaveChangesAsync();
+    }
+}
     }
     
 }

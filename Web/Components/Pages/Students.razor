@@ -3,54 +3,111 @@
 @using Application.DTOs
 @inject NavigationManager Navigation
 @inject IStudentService StudentService
+@inject IDialogService DialogService
 
-<h1>Students List</h1>
-<a class="btn btn-primary" href="/students/Add">Add Student</a>
-<table class="table table-striped">
-    <thead>
- <tr>
-        <th>Id</th>
-        <th>FullName</th>
-        <th>Sex</th>
-        <th>Date Of Birth</th>
-        <th>Phone</th>
-        <th>Email</th>
-        <th>Address</th>
-        <th>ParentNames</th>
-        <th>Parentphonenumber</th>
-        <th>useradded</th>
-        <th>DateAdded</th>
-        <th>Status</th>
-        <th>Action</th>
-
-    </tr>
-    </thead>
-   
-    @foreach (var student in students)
-    {
-        <tr>
-            <td>@student.Id</td>
-            <td>@student.FullName</td>
-            <td>@student.Sex</td>
-            <td>@student.DateOfBirth</td>
-            <td>@student.Phone</td>
-            <td>@student.Email</td>
-            <td>@student.Address</td>
-            <td>@student.ParentNames</td>
-            <td>@student.ParentPhoneNumber</td>
-            <td>@student.UserAdded</td>
-            <td>@student.DateAdded</td>
-            <td>@student.Status</td>
-            <th><a href="/students/@student.Id" class="btn btn-primary">ViewDetails</a></th>
-
-        </tr>
-    }
-</table>
+<MudContainer MaxWidth="MaxWidth.ExtraLarge" Class="mt-4">
+    <MudDataGrid T="GetStudentDTO" 
+    MultiSelection="true" 
+    Items="@students" 
+    SortMode="SortMode.Multiple" 
+    Filterable="true"
+     QuickFilter="@_quickFilter"
+    Hideable="true" 
+    RowClick="@RowClicked" 
+    RowContextMenuClick="RowRightClicked"
+     SelectedItemsChanged="@SelectedItemsChanged">
+    <ToolBarContent>
+        <MudText Typo="Typo.h6">Periodic Elements</MudText>
+        <MudSpacer />
+        <MudContainer MaxWidth="MaxWidth.ExtraSmall" Class="d-none d-md-flex">
+            <MudTextField @bind-Value="_searchString" 
+        Placeholder="Search" 
+        Adornment="Adornment.Start"
+         Margin="Margin.Dense"
+         Immediate="true"
+          Variant="Variant.Outlined" 
+        AdornmentIcon="@Icons.Material.Filled.Search"
+         IconSize="Size.Medium" 
+         Class="mt-1">
+         </MudTextField>
+        </MudContainer>
+         <MudButton 
+         Variant="Variant.Filled"
+         @onclick="() => OpenDialogAsync(_closeButton)"
+          Color="Color.Primary">Add Student</MudButton>
+    </ToolBarContent>
+    <Columns>
+        <SelectColumn T="GetStudentDTO" />
+        <PropertyColumn Property="x => x.Id" Title="ID" Sortable="false" Filterable="false" />
+        <PropertyColumn Property="x => x.FullName" Title="Full Name"/>
+        <PropertyColumn Property="x => x.Sex" Title="Sex" SortBy="@_sortBy" />
+        <PropertyColumn Property="x => x.Phone"Title="Phone"  />
+        <PropertyColumn Property="x => x.Email" Title="Email" />
+       
+    </Columns>
+    <PagerContent>
+        <MudDataGridPager T="GetStudentDTO" />
+    </PagerContent>
+</MudDataGrid>
+</MudContainer>
 @code{
-  
+    private string _searchString;
+    private bool _sortNameByLength;
+    private List<string> _events = new();
+         private Func<GetStudentDTO, object> _sortBy => x =>
+    {
+        if (_sortNameByLength)
+            return x.FullName.Length;
+        else
+            return x.Sex;
+    };
+     private Func<GetStudentDTO, bool> _quickFilter => x =>
+    {
+        if (string.IsNullOrWhiteSpace(_searchString))
+            return true;
+
+        if (x.FullName.Contains(_searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if (x.Sex.Contains(_searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+       
+
+        return false;
+    };
+    
+
     private List<GetStudentDTO> students = new List <GetStudentDTO>();
     protected override async Task OnInitializedAsync()
     {
        students = await StudentService.GetAllStudentsAsync();
     }
-}
+ void RowClicked(DataGridRowClickEventArgs<GetStudentDTO> args)
+    {
+        _events.Insert(0, $"Event = RowClick, Index = {args.RowIndex}, Data = {System.Text.Json.JsonSerializer.Serialize(args.Item)}");
+    }
+    
+    void RowRightClicked(DataGridRowClickEventArgs<GetStudentDTO> args)
+    {
+        _events.Insert(0, $"Event = RowRightClick, Index = {args.RowIndex}, Data = {System.Text.Json.JsonSerializer.Serialize(args.Item)}");
+    }
+
+    void SelectedItemsChanged(HashSet<GetStudentDTO> items)
+    {
+        _events.Insert(0, $"Event = SelectedItemsChanged, Data = {System.Text.Json.JsonSerializer.Serialize(items)}");
+    }
+     private readonly DialogOptions _closeButton = new() { CloseButton = true };
+    private async Task OpenDialogAsync(DialogOptions options)
+    {
+        var dialog = await DialogService.ShowAsync<AddStudentcopy>("Add New Student", options);
+            
+        var result = await dialog.Result;
+
+        if (result is not null && !result.Canceled)
+        {
+            students = await StudentService.GetAllStudentsAsync();
+
+        }
+    }
+    }

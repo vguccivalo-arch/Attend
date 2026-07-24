@@ -48,4 +48,9 @@ namespace Application.DTOs
 
 
     }
+
+    public class RestoreStudentDTO
+    {
+    public int Id {get;set;}
+    }
  }

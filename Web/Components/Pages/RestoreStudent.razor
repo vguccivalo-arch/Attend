@@ -1,0 +1,40 @@
+@rendermode InteractiveServer
+@using Application.DTOs
+@using Application.Services.StudentServices
+@inject NavigationManager Navigation
+@inject IStudentService StudentService
+@page "/Students/Restore/{id:int}"
+<div>
+    <EditForm OnValidSubmit="UndoStudent" Model="student">
+        <label>You are Deleting Student: </label>
+<button class="btn btn-danger" type="submit">Restore</button>
+<button class="btn btn-primary" type="submit">Cancel</button>
+
+    </EditForm>
+</div>
+
+
+@code{
+       [Parameter]
+       public int Id{get;set;}
+       private GetStudentDTO? existingstudent;
+       public RestoreStudentDTO student=new();
+        protected override async Task OnParametersSetAsync()
+    {
+       existingstudent=await StudentService.GetStudentByIdAsync(Id);
+       if(existingstudent !=null)
+       {
+        student.Id=existingstudent.Id;
+       }
+
+    }
+     public async Task UndoStudent()
+    {
+       await  StudentService.RestoreStudentAsync(student);
+        Navigation.NavigateTo( "/Students");
+    }
+    private void Cancel()
+    {
+         Navigation.NavigateTo("/Classes");
+    }
+}
